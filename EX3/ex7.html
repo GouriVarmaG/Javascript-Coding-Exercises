@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Replace last element</h1>
+  <form onsubmit = "handleSubmit(event)">
+        <label for="Array">Enter array</label>
+        <input type="text" id="getarr" placeholder = "enter array elements"><br>
+        <label for="Num">Enter num</label>
+        <input type="text" id="getnum" placeholder = "enter number to be replaced with"><br>        
+        <button type="submit">Submit</button><br>
+  </form>
+   <p id="result"></p>
+  <script>
+    const replaceLast =(arr,num)=>{
+      if(arr.length === 0){
+        return 'Array is empty'
+      }
+      arr.pop()  //arr[arr.length-1] = num;
+      arr.push(num)
+      return arr;
+    }
+    const handleSubmit = (event) =>{
+
+      event.preventDefault();
+
+      const arrayInput = document.getElementById('getarr').value;
+      const numInput = document.getElementById('getnum').value;
+
+      const array = arrayInput.split(',').map(Number);
+      const number = Number(numInput);
+
+      const resultArr = replaceLast(array,number);
+
+      document.getElementById('result').textContent="updated array: "+ resultArr.join(',');
+    }
+  </script>
+</body>
+</html>

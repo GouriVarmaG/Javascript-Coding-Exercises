@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Replace First Element of an array</h1>
+    <form onsubmit = "handleSubmit(event)">
+      <label for="array">Enter Array</label><br />
+      <input
+        type="text"
+        id="getarray"
+        placeholder="Enter array elements"
+      /><br>
+      <label for="array">Enter number</label><br />
+      <input
+        type="text"
+        id="getnum"
+        placeholder="Enter number to be replaced with"
+      /><br>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="result"></p>
+
+
+    <script>
+      const replaceFirst = (arr, c) => {
+        if (arr.length === 0) {
+          return "array is empty"
+        }
+        arr[0] = c;
+        return arr;
+      };
+      const handleSubmit = (event) =>{
+        event.preventDefault();
+
+        const arrInput = document.getElementById('getarray').value;
+        const numInput = document.getElementById('getnum').value;
+
+        const array = arrInput.split(',').map(Number);
+        const num = Number(numInput);
+
+        const result = replaceFirst(array,num);
+        document.getElementById("result").textContent = "Updated Array: " +result.join(',');
+      }
+    </script>    
+  </body>
+</html>
+

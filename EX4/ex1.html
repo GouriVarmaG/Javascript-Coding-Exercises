@@ -1,0 +1,21 @@
+<!-- Given a year, report if it is a leap year -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="year">
+  <button onclick="checkLeap()">submit</button>
+  <p id="result"></p>
+  <script>
+    const checkLeap = () =>{
+      const year = document.getElementById('year').value; 
+     document.getElementById('result').textContent =(year%4===0) && (year%100 !==0 || year %400 ===0); 
+  }
+  </script>
+</body>
+</html>
